@@ -18,6 +18,6 @@ class RedirectUriValidator < ActiveModel::EachValidator
 private
 
   def test_redirect_uri?(uri)
-    self.class.test_redirect_uri.present? && uri.to_s == self.class.test_redirect_uri.to_s
+    self.class.test_redirect_uri.present? && uri.to_s.match(self.class.test_redirect_uri.to_s)
   end
 end
